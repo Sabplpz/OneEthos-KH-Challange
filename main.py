@@ -1,15 +1,15 @@
 from flask import Flask, jsonify, request, render_template
+from financial_agent.agent import root_agent
+from flask_cors import CORS
 
 app = Flask(__name__)
 
+#Defines root route
 @app.route('/')
 def home():
     return render_template('index.html')
 
-@app.route('/features/ai_coach.html')
-def ai_coach():
-    return render_template('features/ai_coach.html')
-
+# Financial Planning Feature
 @app.route('/features/financial_planning.html', methods=['POST'])
 def calculate_budget(salary):
     return {
@@ -20,9 +20,15 @@ def calculate_budget(salary):
         "Miscellaneous": round(salary * 0.25, 2)
     }
 
-@app.route('/features/financial_planning.html', methods=['GET'])
-def financial_planning():
-    return render_template('features/financial_planning.html')
+# AI Coach Feature
+@app.route('/features/ai_coach.html', methods=['POST'])
+def ai_coach_response():
+    data = request.get.json()
+    user_input = data.get('input', '')
+    response = root_agent.run(user_input)
+    return jsonify({"response": response})
+
+
 
 if __name__ == '__main__':
     app.run(debug=True)
