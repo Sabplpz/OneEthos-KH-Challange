@@ -6,16 +6,8 @@ app = Flask(__name__)
 def home():
     return render_template('index.html')
 
-@app.route('/features/financial_planning.html')
-def financial_planning():
-    # This function tells Flask to render the specific template
-    # Flask looks in the 'templates/features/' folder
-    return render_template('features/financial_planning.html')
-
 @app.route('/features/ai_coach.html')
 def ai_coach():
-    # This function tells Flask to render the specific template
-    # Flask looks in the 'templates/features/' folder
     return render_template('features/ai_coach.html')
 
 @app.route('/features/financial_planning.html', methods=['POST'])
@@ -27,6 +19,7 @@ def calculate_budget(salary):
         "Entertainment": round(salary * 0.10, 2),
         "Miscellaneous": round(salary * 0.25, 2)
     }
+
 @app.route('/features/financial_planning.html', methods=['GET'])
 def financial_planning():
     return render_template('features/financial_planning.html')
