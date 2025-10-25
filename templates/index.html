@@ -33,32 +33,44 @@
         </header>
 
     <!-- Main Section -->
-    <main class="grow flex flex-col items-center px-6 py-12 space-y-8">
-    
+    <main class="flex-grow flex-col px-6 py-12 mt-8 space-y-8">
+        <div class="flex flex-col lg:flex-row items-start lg:items-stretch gap-12 max-w-6xl mx-auto">
+            <div class="w-full lg:w-1/2 h-[400px] rounded-xl overflow-hidden shadow-lg relative">
 
+                <!-- Slides container -->
+                <div id="carousel" class="flex transition-transform duration-700 ease-in-out">
+                    <img src="../static/images/hackathon_carousel1.jpg" class="w-full h-full object-cover object-center flex-shrink-0" alt="Slide 1">
+                    <img src="../static/images/hackathon_carousel2.jpg" class="w-full h-full object-cover object-center flex-shrink-0" alt="Slide 2">
+                    <img src="../static/images/hackathon_carousel3.jpg" class="w-full h-full object-cover object-center flex-shrink-0" alt="Slide 3">
+                </div>
+                <!-- Navigation buttons -->
+                <button id="prevBtn" class="absolute left-3 top-1/2 -translate-y-1/2 bg-white/70 rounded-full p-2 hover:bg-white shadow">
+                    &#10094;</button>
+                <button id="nextBtn" class="absolute right-3 top-1/2 -translate-y-1/2 bg-white/70 rounded-full p-2 hover:bg-white shadow">
+                    &#10095;</button>
+                
+            </div>
+            <div class="flex flex-col items-center space-y-4">
+                <h2 class="text-4xl font-bold text-center">Plan today, prosper tomorrow</h2>
+                <!-- Navigation Cards Section -->
+                <div class="flex justify-center gap-8 mt-8">
+                <!-- Card 1 -->
+                <a href="features/financial_planning.html" class="bg-lightblue shadow-lg rounded-xl p-8 w-64 h-56 text-center hover:scale-105 transition-transform duration-200">
+                    <h3 class="text-lg font-semibold text-black">Savings Plan</h3>
+                    <p class="text-sm text-gray-600 mt-2">Start Saving Smart Today</p>
+                </a>
 
-      <div class="flex flex-col items-center space-y-4">
-        <h2 class="text-4xl font-bold text-center">Plan today, prosper tomorrow</h2>
-        <!-- Navigation Cards Section -->
-        <div class="flex justify-center gap-8 mt-8">
-        <!-- Card 1 -->
-        <a href="features/financial_planning.html" class="bg-lightblue shadow-lg rounded-xl p-8 w-64 h-56 text-center hover:scale-105 transition-transform duration-200">
-            <h3 class="text-lg font-semibold text-black">Savings Plan</h3>
-            <p class="text-sm text-gray-600 mt-2">Start Saving Smart Today</p>
-        </a>
-
-        <!-- Card 2 -->
-        <a href="features/ai_coach.html" class="bg-lightblue shadow-lg rounded-xl p-8 w-64 h-56 text-center hover:scale-105 transition-transform duration-200">
-            <h3 class="text-lg font-semibold text-black">Learn More</h3>
-            <p class="text-sm text-gray-600 mt-2">Ask Our AI Coach About Your Financial Needs</p>
-        </a>
+                <!-- Card 2 -->
+                <a href="features/ai_coach.html" class="bg-lightblue shadow-lg rounded-xl p-8 w-64 h-56 text-center hover:scale-105 transition-transform duration-200">
+                    <h3 class="text-lg font-semibold text-black">Learn More</h3>
+                    <p class="text-sm text-gray-600 mt-2">Ask Our AI Coach About Your Financial Needs</p>
+                </a>
+                </div>
+            </div>
         </div>
-
-
-      
-
     </main>
   </div>
+  <script src="../static/home.js"></script>
 </body>
 </html>
   
