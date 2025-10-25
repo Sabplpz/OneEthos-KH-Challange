@@ -9,6 +9,10 @@ app = Flask(__name__)
 def home():
     return render_template('index.html')
 
+@app.route('/features/financial_planning')
+def financial_planning():
+    return render_template('features/financial_planning.html')
+
 # Financial Planning Feature
 @app.route('/features/financial_planning.html', methods=['POST'])
 def calculate_budget(salary):
