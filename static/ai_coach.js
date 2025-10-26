@@ -4,13 +4,18 @@ const chatWindow = document.getElementById('chatWindow');
 
 sendbtn.addEventListener('click', async () => {
     const message = userInput.value.trim(); // Get and trim user input
-    chatWindow.innerHTML = ''; // Clear any existing messages
 
     // Validate input
     if (!message) {
     alert('Please enter a question for the AI.');
     return;
     }
+
+    const userMessage = document.createElement('div');
+    userMessage.className = 'bg-gray-200 p-4 rounded-lg shadow-md';
+    userMessage.innerText = message;
+    chatWindow.appendChild(userMessage);
+    userInput.value = ''; // Clear input field
 
     // Send user question to the server
     try {
@@ -40,6 +45,9 @@ sendbtn.addEventListener('click', async () => {
         aiMessage.className = 'bg-blue-100 p-4 rounded-lg shadow-md';
         aiMessage.innerText = data.answer;
         chatWindow.appendChild(aiMessage);
+
+
+        chatWindow.scrollTop = chatWindow.scrollHeight;
     } catch (error) {
         console.error('Network or JS Error:', error);
         alert('An error occurred while fetching data. Please try again.');

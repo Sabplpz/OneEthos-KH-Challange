@@ -1,5 +1,5 @@
 from flask import Flask, jsonify, request, render_template
-from financial_agent.agent import root_agent
+from financial_agent.agent import root_agent,run_agent
 from flask_cors import CORS
 from typing import Dict, List, Union
 
@@ -71,9 +71,14 @@ def calculate_budget() -> Dict[str, Union[List[str], Dict[str, float]]]:
 @app.route('/ask_ai', methods=['POST'])
 def ai_coach_response():
     data = request.get_json()
-    user_input = data.get('input', '')
-    response = root_agent.run(user_input)
-    return jsonify({"response": response})
+    user_input = data.get('question', '')
+    if not user_input:
+        return jsonify({"error": "No question provided"}), 400
+    try:
+        response = run_agent(user_input)
+        return jsonify({"answer": response})
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
 
 
 if __name__ == '__main__':
