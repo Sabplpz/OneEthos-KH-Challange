@@ -39,9 +39,9 @@
 
                 <!-- Slides container -->
                 <div id="carousel" class="flex transition-transform duration-700 ease-in-out">
-                    <img src="../static/images/hackathon_carousel1.jpg" class="w-full h-full object-cover object-center shrink-0" alt="Slide 1">
-                    <img src="../static/images/hackathon_carousel2.jpg" class="w-full h-full object-cover object-center shrink-0" alt="Slide 2">
-                    <img src="../static/images/hackathon_carousel3.jpg" class="w-full h-full object-cover object-center shrink-0" alt="Slide 3">
+                    <img src="{{ url_for('static', filename='images/hackathon_carousel1.jpg') }}" class="w-full h-full object-cover object-center shrink-0" alt="Slide 1">
+                    <img src="{{ url_for('static', filename='images/hackathon_carousel2.jpg') }}" class="w-full h-full object-cover object-center shrink-0" alt="Slide 2">
+                    <img src="{{ url_for('static', filename='images/hackathon_carousel3.jpg') }}" class="w-full h-full object-cover object-center shrink-0" alt="Slide 3">
                 </div>
                 <!-- Navigation buttons -->
                 <button id="prevBtn" class="absolute left-3 top-1/2 -translate-y-1/2 bg-white/70 rounded-full p-2 hover:bg-white shadow">
@@ -70,7 +70,7 @@
         </div>
     </main>
   </div>
-  <script src="../static/home.js"></script>
+  <script src="{{ url_for('static', filename='home.js') }}"></script>
 </body>
 </html>
   

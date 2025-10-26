@@ -10,6 +10,7 @@ button.addEventListener('click', async () => {
         return;
     }
     try {
+        
         const response =  await fetch('/calculate', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
