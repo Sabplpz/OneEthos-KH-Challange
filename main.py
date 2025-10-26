@@ -1,6 +1,6 @@
 from flask import Flask, jsonify, request, render_template
-from financial_agent.agent import root_agent
-from flask_cors import CORS
+#from financial_agent.agent import root_agent
+#from flask_cors import CORS
 
 app = Flask(__name__)
 
@@ -9,14 +9,19 @@ app = Flask(__name__)
 def home():
     return render_template('index.html')
 
-@app.route('/features/financial_planning')
+@app.route('/financial_planning')
 def financial_planning():
     return render_template('features/financial_planning.html')
+
+@app.route('/ai_coach')
+def ai_coach():
+    return render_template('features/ai_coach.html')
+
 
 # Financial Planning Feature
 @app.route('/calculate', methods=['POST'])
 def calculate_budget():
-    data = request.get.json()
+    data = request.get_json()
     salary = float(data.get('salary', 0))
     budget = {
         "Housing": round(salary*0.30, 2),
@@ -28,13 +33,13 @@ def calculate_budget():
     return jsonify(budget)
 
 # AI Coach Feature
-@app.route('/ask', methods=['POST'])
+"""@app.route('/ask', methods=['POST'])
 def ai_coach_response():
     data = request.get.json()
     user_input = data.get('input', '')
     response = root_agent.run(user_input)
     return jsonify({"response": response})
-
+"""
 
 
 if __name__ == '__main__':

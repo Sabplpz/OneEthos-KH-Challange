@@ -10,7 +10,7 @@ button.addEventListener('click', async () => {
         return;
     }
     try {
-        const response = fetch('http://127.0.0.1:5000/calculate', {
+        const response =  await fetch('/calculate', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ salary: Number(salary) })
@@ -20,7 +20,10 @@ button.addEventListener('click', async () => {
         for (const category of data.categories) {
             const card = document.createElement('div');
             card.className = 'bg-white rounded-lg shadow-md p-6 text-center';
-            card.innerHTML = '<p class="text-lg font-medium">${category}</p><p class="text-gray-700">$${budget[category]}</p>';
+            card.innerHTML = `
+            <p class="text-lg font-medium">${category}</p>
+            <p class="text-gray-700">$${budget[category]}</p>
+            `;
             cardsContainer.appendChild(card);
         }
     } catch (error) {
