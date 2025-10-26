@@ -13,7 +13,7 @@ root_agent = Agent(
 def run_agent(prompt: str):
     if os.environ.get("ENV", "development") == "development":
         # Mock responses for testing
-        if "savings" in prompt.lower():
+        if any(word in prompt.lower() for word in ["savings", "save", "budget"]):
             return {"text": "A detailed savings plan requires X, Y, and Z. Start by creating a 50/30/20 budget."}
         return {"text": f"Agent processing: '{prompt}'. Providing detailed financial advice."}
     else:

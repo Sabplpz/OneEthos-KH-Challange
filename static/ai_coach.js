@@ -27,7 +27,7 @@ sendbtn.addEventListener('click', async () => {
         // Check for server errors
         if (!response.ok) {
             console.error('Server error:', response.statusText);
-            alert('Server returned: ' + response.statusText);
+            alert('Server returned8: ' + response.statusText);
             return;
         } 
         // Parse JSON response
@@ -43,7 +43,7 @@ sendbtn.addEventListener('click', async () => {
         // Display AI response in chat window
         const aiMessage = document.createElement('div');
         aiMessage.className = 'bg-blue-100 p-4 rounded-lg shadow-md';
-        aiMessage.innerText = data.answer;
+        aiMessage.innerText = data.answer.text || data.answer;
         chatWindow.appendChild(aiMessage);
 
 
