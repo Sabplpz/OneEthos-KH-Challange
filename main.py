@@ -12,6 +12,11 @@ def home() -> str:
     """Render the home page"""
     return render_template('index.html')
 
+@app.route('/home')
+def home_redirect() -> str:
+    """Render the home page"""
+    return render_template('index.html')
+
 @app.route('/financial_planning')
 def financial_planning() -> str:
     """Render the financial planning page"""
