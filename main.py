@@ -1,5 +1,5 @@
 from flask import Flask, jsonify, request, render_template
-from financial_agent.agent import root_agent
+#from financial_agent.agent import root_agent
 from flask_cors import CORS
 from typing import Dict, List, Union
 
@@ -17,7 +17,7 @@ def financial_planning() -> str:
     """Render the financial planning page"""
     return render_template('features/financial_planning.html')
 
-@app.route('/features/ai_coach')
+@app.route('/ai_coach')
 def ai_coach() -> str:
     """Render the AI coach page"""
     return render_template('features/ai_coach.html')
